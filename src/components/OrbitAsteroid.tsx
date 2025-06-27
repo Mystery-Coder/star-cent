@@ -1,9 +1,10 @@
 import * as THREE from "three";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Line, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import type { Asteroid } from "../types/types";
 import { clone } from "three/examples/jsm/utils/SkeletonUtils.js"; //doesn't have types
+import { useNavigate } from "react-router-dom";
 
 type Props = {
 	asteroid: Asteroid;
@@ -28,11 +29,7 @@ export default function OrbitAsteroid({
 	const model = useGLTF(`/models/asteroid${modelIndex}.glb`);
 	const clonedScene = useMemo(() => clone(model.scene), [model.scene]);
 
-	useEffect(() => {
-		if (modelIndex == 3) {
-			console.log(asteroid.full_name);
-		}
-	}, []);
+	const navigate = useNavigate();
 
 	//useMemo to memoize expensive calc
 	const points = useMemo(() => {
@@ -87,7 +84,7 @@ export default function OrbitAsteroid({
 				object={clonedScene}
 				ref={meshRef}
 				scale={modelScaleMap[modelIndex]}
-				onClick={() => console.log(asteroid.full_name)}
+				onClick={() => navigate("/asteroidinfo", { state: asteroid })}
 			/>
 		</group>
 	);

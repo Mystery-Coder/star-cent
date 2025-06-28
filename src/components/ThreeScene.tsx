@@ -18,7 +18,7 @@ export default function ThreeScene({ asteroidNumber }: ThreeSceneProps) {
 			<ambientLight intensity={0.1} />
 			<directionalLight position={[5, 5, 5]} intensity={1} />
 			<Asteroid asteroidNumber={asteroidNumber} />
-			<OrbitControls enableZoom minDistance={2} maxDistance={50} />
+			<OrbitControls />
 			<Environment preset="sunset" />
 		</Canvas>
 	);

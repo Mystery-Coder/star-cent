@@ -77,16 +77,6 @@ export default function Home() {
 					"Loading..."
 				)}
 			</Typography>
-
-			{/* <div
-                    style={{
-                        width: "600px",
-                        height: "400px",
-                        background: "black",
-                    }}
-                >
-                    <ThreeScene asteroidNumber={2} />
-                </div> */}
 		</>
 	);
 }

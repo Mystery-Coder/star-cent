@@ -84,7 +84,11 @@ export default function OrbitAsteroid({
 				object={clonedScene}
 				ref={meshRef}
 				scale={modelScaleMap[modelIndex]}
-				onClick={() => navigate("/asteroidinfo", { state: asteroid })}
+				onClick={() =>
+					navigate("/asteroidinfo", {
+						state: { asteroid, asteroidNumber: modelIndex },
+					})
+				}
 			/>
 		</group>
 	);

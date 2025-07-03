@@ -6,7 +6,7 @@ export default function AsteroidInfo() {
 	const loc = useLocation();
 	const asteroid: Asteroid = loc.state.asteroid;
 	const asteroidNumber: number = loc.state.asteroidNumber;
-	console.log(asteroid.profit);
+	console.log(asteroid);
 
 	return (
 		<Container
@@ -34,6 +34,7 @@ export default function AsteroidInfo() {
 			<Typography>
 				{asteroid.profit} {asteroid.closeness} km
 			</Typography>
+			<Typography>{asteroid.class}</Typography>
 		</Container>
 	);
 }
